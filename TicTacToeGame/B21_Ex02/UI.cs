@@ -48,7 +48,16 @@ Please enter width and hight of your matrix following the next rools:
             }
         }
 
-        public static void PrintGameBoard(ref char[,] gameBoard)
+        public static void MakeMove(ref int io_column, ref int io_row, ref string io_palyer)
+        {
+            System.Console.WriteLine("What is your move ?");
+            io_column = Int32.Parse(System.Console.ReadLine());
+            io_row = Int32.Parse(System.Console.ReadLine());
+            System.Console.WriteLine("And you are ?");
+            io_palyer = System.Console.ReadLine();
+        }
+
+        public static void PrintGameBoard(string[,] gameBoard)
         {
             StringBuilder newString = new StringBuilder();
             int rows = gameBoard.GetLength(0);
