@@ -102,5 +102,22 @@ Please enter width and hight of your matrix following the next rools:
             return v_isAllDigits;
         }
 
+        public static void CreateTwoPlayer()
+        {
+            Console.WriteLine("Player 1, Please enter your name:");
+            string nameplayer1 = Console.ReadLine();
+            Player player1 = new Player(nameplayer1);
+
+            Console.WriteLine("Player 2, Please enter your name:");
+            string nameplayer2 = Console.ReadLine();
+            Player player2 = new Player(nameplayer2);
+        }
+        public static void CreatOnePlayer()
+        {
+            Console.WriteLine(" You Play against the computer, Please enter your name:");
+            string nameplayer = Console.ReadLine();
+            Player player = new Player(nameplayer);
+        }
+
     }
 }
