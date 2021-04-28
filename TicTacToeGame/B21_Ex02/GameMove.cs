@@ -8,80 +8,106 @@ namespace B21_Ex02
 {
     public class GameMove
     {
-        private int m_column;
-        private int m_row;
-        private string m_player;
-        public int Column
+        private Player m_Player1;
+        private Player m_Player2;
+
+        public const bool Player1Tag = true, Player2Tag = false;
+
+        bool m_PlayingPlayer = Player1Tag;
+
+        UI r_Ui;
+        Board board;
+
+        //switch the turn of the player
+        public void ChangePlayer()
         {
-            get
-            {
-                return m_column;
-            }
-            set
-            {
-                m_column = value;
-            }
+            m_PlayingPlayer = m_PlayingPlayer == Player1Tag ? Player2Tag : Player1Tag;
         }
 
-        public int Row
+        public GameMove()
         {
-            get
-            {
-                return m_row;
-            }
-            set
-            {
-                m_row = value;
-            }
+            r_Ui = new UI();
         }
 
-        public string Player
+        public void InitGame()
         {
-            get
+
+            int lengthBorad = 0;
+            r_Ui.GetWidthAndHeightFromUser(out lengthBorad);
+            board = new Board(lengthBorad);
+
+            string player1Name;
+            string player2Name;
+
+            r_Ui.UiPlayersNames(out player1Name, out player2Name);
+
+            if (player2Name == null)
             {
-                return m_player;
+                player2Name = "Computer";
             }
-            set
-            {
-                m_player = value;
-            }
+
+            m_Player1 = new Player(player1Name);
+            m_Player2 = new Player(player2Name);
+
+
+
         }
 
-
-        public void MakeMove()
+        public void StartGame()
         {
-            UI.MakeMove(ref m_column, ref m_row, ref m_player);
-          
-        }
 
-        public Boolean IsValidMove(ref Board gameBoard)
-        {
-            bool isValid = false;
-            while (m_column > gameBoard.BoardWidth || m_row > gameBoard.BoardHeight || m_column < 1 || m_row < 1)
+            // r_Ui.PrintGameBoard(board.GetBorad());
+
+            int rowMove, colMove;
+
+            while (true)
             {
-                Console.WriteLine("Input invalid!");
-                MakeMove();
-                isValid = false;
-            }
-            isValid = true;
+                r_Ui.PrintGameBoard(board.GetBorad());
 
-            return isValid;
-        }
-        public Boolean CheckIfThePlaceIsEmpty(ref char[,] gameBoard, ref int[] move)
-        {
-            int row = move[0] - 1;
-            int col = move[1] - 1;
-            Boolean isEmpty = true;
-            if (gameBoard[row, col] == 'o' || gameBoard[row, col] == 'O' || gameBoard[row, col] == 'X'
-                || gameBoard[row, col] == 'x')
-            {
-                isEmpty = false;
-                Console.WriteLine("This Place is not empty! choose new place");
-                //UI.MakeMove(ref move);
-                //Boolean isvalid = Program.IsValidMove(ref move);
-            }
-            return isEmpty;
-        }
+                string playerName = m_PlayingPlayer == Player1Tag ? m_Player1.Name : m_Player2.Name;
 
+                r_Ui.GetInputMove(out rowMove, out colMove, playerName);
+                Ex02.ConsoleUtils.Screen.Clear();
+
+                if (rowMove < 0)
+                {
+                    Console.WriteLine("Game Quit . :)");
+                    break;
+                }
+
+                if (!board.MoveIsValid(rowMove, colMove))
+                {
+                    Console.WriteLine("The Move is Invalid please try again.");
+                }
+                else
+                {
+                    ChangePlayer();
+                }
+                // everty time the player make move we need to check if someone win
+                bool checkWin = board.CheckWin();
+                if (checkWin || board.NumberOfMove==(board.NumberOfLength*board.NumberOfLength) )
+                {
+                    Player player = m_PlayingPlayer != Player1Tag ? m_Player2 : m_Player1;
+                    //int score =+ player.Score;
+                    Console.WriteLine("The Winner is {0} !! , with {1} points "
+                        , player.Name , ++player.Score);
+                    Console.WriteLine("Are you want to play again? press Y or N");
+                    Console.ReadLine();
+                }
+
+                if (!checkWin && board.GameEnd()) 
+                {
+                    Console.WriteLine("Draw!!!!!!! Game Over , {0} : {1} vs  {2} : {3}",m_Player1.Name , m_Player1.Score, m_Player2.Name , m_Player2.Score);
+                }
+
+
+                if (!checkWin && board.GameEnd()) 
+                {
+                    board.GameReset();
+                }
+
+            }
+
+        }
     }
 }
