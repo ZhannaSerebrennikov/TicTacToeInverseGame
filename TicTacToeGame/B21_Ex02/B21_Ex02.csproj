@@ -37,6 +37,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
+    <Compile Include="ComputerPlayer.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="GameMove.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

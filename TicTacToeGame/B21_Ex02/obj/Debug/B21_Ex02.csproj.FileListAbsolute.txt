@@ -7,3 +7,12 @@ C:\Users\Oshrat\Source\Repos\ZhannaSerebrennikov\TicTacToeInverseGame\TicTacToeG
 C:\Users\Oshrat\Source\Repos\ZhannaSerebrennikov\TicTacToeInverseGame\TicTacToeGame\B21_Ex02\obj\Debug\B21_Ex02.csproj.CopyComplete
 C:\Users\Oshrat\Source\Repos\ZhannaSerebrennikov\TicTacToeInverseGame\TicTacToeGame\B21_Ex02\obj\Debug\B21_Ex02.exe
 C:\Users\Oshrat\Source\Repos\ZhannaSerebrennikov\TicTacToeInverseGame\TicTacToeGame\B21_Ex02\obj\Debug\B21_Ex02.pdb
+C:\Users\Zhanna-Komp\GitHubTicTacToeGame\TicTacToeGame\B21_Ex02\obj\Debug\B21_Ex02.csprojAssemblyReference.cache
+C:\Users\Zhanna-Komp\GitHubTicTacToeGame\TicTacToeGame\B21_Ex02\obj\Debug\B21_Ex02.csproj.CoreCompileInputs.cache
+C:\Users\Zhanna-Komp\GitHubTicTacToeGame\TicTacToeGame\B21_Ex02\obj\Debug\B21_Ex02.exe
+C:\Users\Zhanna-Komp\GitHubTicTacToeGame\TicTacToeGame\B21_Ex02\obj\Debug\B21_Ex02.pdb
+C:\Users\Zhanna-Komp\GitHubTicTacToeGame\TicTacToeGame\B21_Ex02\bin\Debug\B21_Ex02.exe.config
+C:\Users\Zhanna-Komp\GitHubTicTacToeGame\TicTacToeGame\B21_Ex02\bin\Debug\B21_Ex02.exe
+C:\Users\Zhanna-Komp\GitHubTicTacToeGame\TicTacToeGame\B21_Ex02\bin\Debug\B21_Ex02.pdb
+C:\Users\Zhanna-Komp\GitHubTicTacToeGame\TicTacToeGame\B21_Ex02\bin\Debug\Ex02.ConsoleUtils.dll
+C:\Users\Zhanna-Komp\GitHubTicTacToeGame\TicTacToeGame\B21_Ex02\obj\Debug\B21_Ex02.csproj.CopyComplete

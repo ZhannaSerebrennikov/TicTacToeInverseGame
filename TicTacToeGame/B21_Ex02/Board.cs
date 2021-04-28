@@ -8,6 +8,7 @@ namespace B21_Ex02
 {
     public class Board
     {
+        public enum Mark { X, O, Empty };
         private int m_width;
         private int m_height;
 
@@ -66,7 +67,7 @@ namespace B21_Ex02
             }
         }
 
-        public void MakeMove()
+        public void MakeMove(string i_mark)
         {
             m_gameMove.MakeMove();
             for (int i = 0; i < this.m_width; i++)
@@ -74,7 +75,8 @@ namespace B21_Ex02
                 for (int j = 0; j < this.m_height; j++)
                 {
                     if (i == (m_gameMove.Column - 1) && j == (m_gameMove.Row - 1))
-                        this.m_board[i, j] = String.Copy(m_gameMove.Player);
+                        //this.m_board[i, j] = String.Copy(m_gameMove.Player);
+                        this.m_board[i, j] = String.Copy(i_mark);
                 }
             }
         }

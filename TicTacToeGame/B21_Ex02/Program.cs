@@ -10,13 +10,15 @@ namespace B21_Ex02
         public static void Main()
         {
             Board gameBoard = new Board();
-            
+            Game game = new Game();
+
             UI.GetWidthAndHeightFromUser(ref width, ref height);
             gameBoard.BoardWidth = width;
             gameBoard.BoardHeight = height;
 
             gameBoard.CreateBoard();
-    
+            game.GetBoard(gameBoard);
+
 
             /////////////////////////////////not correct place
             UI.IfGameAgainstCompDecision(ref m_decision);
@@ -40,7 +42,8 @@ namespace B21_Ex02
             UI.PrintGameBoard(gameBoard.m_board);
             while(true)
             {
-                gameBoard.MakeMove();
+               // game.MakeMove(gameBoard.m_board);
+                game.MakeMove();
                 //bool isValid = GameMove.IsValidMove(ref gameBoard);
                 Ex02.ConsoleUtils.Screen.Clear();
                 UI.PrintGameBoard(gameBoard.m_board);
