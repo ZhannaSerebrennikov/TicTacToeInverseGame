@@ -28,6 +28,7 @@ namespace B21_Ex02
                 UI.IfGameAgainstCompDecision(ref m_decision);
             }
             /////////////////////////////////////////////////
+<<<<<<< HEAD
             UI.PrintGameBoard(gameBoard.m_board);
             while(true)
             {
@@ -49,18 +50,15 @@ namespace B21_Ex02
         public string[,] m_board;
 
         private GameMove m_gameMove = new GameMove();
+=======
+>>>>>>> master
 
-        public int BoardWidth
-        {
-            get
+            //create 2 player or one by selection
+            if (m_decision == 0)
             {
-                return m_width;
-
+                UI.CreateTwoPlayer();
             }
-            set
-            {
-                m_width = value;            
-            }
+<<<<<<< HEAD
         }
         public int BoardHeight
         {
@@ -84,26 +82,23 @@ namespace B21_Ex02
         public void CreateBoard()
         {
             while (this.BoardWidth != this.BoardHeight || this.BoardWidth < 3 || this.BoardWidth > 9)
+=======
+            //
+            else if (m_decision == 1)
+>>>>>>> master
             {
-                UI.PrintErrorMessage();
-                UI.GetWidthAndHeightFromUser(ref this.m_width, ref this.m_height);
+                UI.CreatOnePlayer();
+            }
+            UI.PrintGameBoard(gameBoard.m_board);
+            while(true)
+            {
+                gameBoard.MakeMove();
+                //bool isValid = GameMove.IsValidMove(ref gameBoard);
+                Ex02.ConsoleUtils.Screen.Clear();
+                UI.PrintGameBoard(gameBoard.m_board);
             }
 
-            this.m_board = new string[this.m_width, this.m_height];
-            this.initialisateBoard();
-        }
-
-        private void initialisateBoard()
-        {
-            for (int i = 0; i < this.m_width; i++)
-            {
-                for (int j = 0; j < this.m_height; j++)
-                {
-                    this.m_board[i, j] = " ";
-                }
-            }
-        }
-
+<<<<<<< HEAD
         public void MakeMove(string i_mark)
         {
             m_gameMove.MakeMove();
@@ -118,56 +113,9 @@ namespace B21_Ex02
                     }
                 }
             }
+=======
+>>>>>>> master
         }
     }
 
-    public class GameMove
-    {
-        private int m_column;
-        private int m_row;
-        private string m_player;
-        public int Column
-        {
-            get
-            {
-                return m_column;
-            }
-            set
-            {
-                m_column = value;
-            }
-        }
-
-        public int Row
-        {
-            get
-            {
-                return m_row;
-            }
-            set
-            {
-                m_row = value;
-            }
-        }
-
-        public string Player
-        {
-            get
-            {
-                return m_player;
-            }
-            set
-            {
-                m_player = value;
-            }
-        }
-
-
-        public void MakeMove()
-        {
-            UI.MakeMove(ref m_column, ref m_row, ref m_player);
-
-        }
-
-    }
 }
